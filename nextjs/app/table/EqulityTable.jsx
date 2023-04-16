@@ -1,12 +1,10 @@
-import styles from "./EqulityTable.module.css";
-import { equality, values } from "../lib/jsEqulity";
+import styles from './EqulityTable.module.css';
+import { equality, values } from '../../lib/jsEqulity';
 
 export default function EqulityTable() {
-  const getSign = ({ x, y }) => equality({ x, y }, ["=", "≅", "≠"]);
-  const getStyle = ({ x, y }) =>
-    equality({ x, y }, [styles.strict, styles.loose, styles.notEqual]);
-  const getTitle = ({ x, y }) =>
-    equality({ x, y }, ["Strict equality", "Loose equality", "Not equal"]);
+  const getSign = ({ x, y }) => equality({ x, y }, ['=', '≅', '≠']);
+  const getStyle = ({ x, y }) => equality({ x, y }, [styles.strict, styles.loose, styles.notEqual]);
+  const getTitle = ({ x, y }) => equality({ x, y }, ['Strict equality', 'Loose equality', 'Not equal']);
 
   const header = () => (
     <tr>
@@ -24,11 +22,7 @@ export default function EqulityTable() {
       <tr key={index}>
         <td className={styles.labelRow}>{label}</td>
         {values.map(({ y }, index) => (
-          <td
-            key={index}
-            className={[styles.cell, getStyle({ x, y })].join(" ")}
-            title={getTitle({ x, y })}
-          >
+          <td key={index} className={[styles.cell, getStyle({ x, y })].join(' ')} title={getTitle({ x, y })}>
             {getSign({ x, y })}
           </td>
         ))}
