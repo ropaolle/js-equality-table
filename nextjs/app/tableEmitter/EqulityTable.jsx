@@ -1,10 +1,11 @@
+// https://ianobermiller.com/blog/highlight-table-row-column-react#custom-event-emitter
+
 'use client';
 import { useRef, useEffect, useState, memo } from 'react';
 import styles from './EqulityTable.module.css';
 import { equality, values } from '../../lib/jsEqulity';
 
 const emitter = (() => {
-  // Keep track of the currently highlighted row and column
   let currentRow = -1;
   let currentCol = -1;
   const subs = [];
@@ -31,8 +32,7 @@ const emitter = (() => {
         });
       });
 
-      // Update the currently highlighted cell, otherwise
-      // you'll never unhighlight the old ones.
+      // Update the currently highlighted cell, otherwise you'll never unhighlight the old ones.
       currentRow = newRow;
       currentCol = newCol;
     },

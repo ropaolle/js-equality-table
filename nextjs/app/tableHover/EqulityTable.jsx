@@ -7,7 +7,7 @@ export default function EqulityTable() {
   const [mouseCord, setMouseCord] = useState({ x: -1, y: -1 });
   const onMouseEnter = ([y, x]) => setMouseCord({ x: Number(x), y: Number(y) });
   const onMouseLeave = () => setMouseCord({ x: null, y: null });
-  const getHoverStyle = ({ x, y }) => (x === mouseCord.x || y === mouseCord.y ? styles.labelHover : '');
+  const getHoverStyle = ({ x, y }) => (x === mouseCord.x || y === mouseCord.y ? styles.colRowHover : '');
 
   const getSign = ({ x, y }) => equality({ x, y }, ['=', '≅', '≠']);
   const getStyle = ({ x, y }) => equality({ x, y }, [styles.strict, styles.loose, styles.notEqual]);
@@ -26,14 +26,16 @@ export default function EqulityTable() {
 
   const Row = ({ x, indexX }) =>
     values.map(({ y }, indexY) => (
-      <td
-        key={indexY}
-        id={indexX + ':' + indexY}
-        onMouseEnter={(e) => onMouseEnter(e.currentTarget.id.split(':'))}
-        className={[styles.cell, getStyle({ x, y }), getHoverStyle({ y: indexX, x: indexY })].join(' ')}
-        title={getTitle({ x, y })}
-      >
-        {getSign({ x, y })}
+      <td className="olle">
+        <div
+          key={indexY}
+          id={indexX + ':' + indexY}
+          onMouseEnter={(e) => onMouseEnter(e.currentTarget.id.split(':'))}
+          className={[getStyle({ x, y }), getHoverStyle({ y: indexX, x: indexY })].join(' ')}
+          title={getTitle({ x, y })}
+        >
+          {getSign({ x, y })}
+        </div>
       </td>
     ));
 
