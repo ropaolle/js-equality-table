@@ -2,17 +2,17 @@
 
 Test of a couple of different JavaScript frameworks by building a simple equality table. Shamelessly based on the repo https://github.com/dorey/JavaScript-Equality-Table.
 
-## Used frameworks
+## Tested frameworks
 
 - [x] Create React App
 - [x] Gatsby
 - [x] Next.js
   - [App Router - Pages](https://beta.nextjs.org/docs/routing/fundamentals)
 - [x] Vite
-- [ ] ReMix
+- [x] ReMix
 - [ ] Astro 2.0
 
-## Not used
+## Not tested
 
 - Static site generators
   - Hexo
