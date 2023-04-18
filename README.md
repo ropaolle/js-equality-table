@@ -10,7 +10,7 @@ Test of a couple of different JavaScript frameworks by building a simple equalit
   - [App Router - Pages](https://beta.nextjs.org/docs/routing/fundamentals)
 - [x] Vite
 - [x] ReMix
-- [ ] Astro 2.0
+- [x] Astro 2.0
 
 ## Not tested
 
