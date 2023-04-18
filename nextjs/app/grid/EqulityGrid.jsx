@@ -7,7 +7,7 @@ export default function EqulityGrid() {
   const getStyle = ({ x, y }) => equality({ x, y }, [styles.strict, styles.loose, styles.notEqual]);
   const getTitle = ({ x, y }) => equality({ x, y }, ['Strict equality', 'Loose equality', 'Not equal']);
 
-  const header = () => (
+  const Header = () => (
     <>
       <div></div>
       {values.map(({ label }, index) => (
@@ -18,7 +18,7 @@ export default function EqulityGrid() {
     </>
   );
 
-  const rows = () =>
+  const Rows = () =>
     values.map(({ x, label }, indexX) => (
       <Fragment key={indexX}>
         <div key={indexX} className={styles.labelRow}>
@@ -34,8 +34,8 @@ export default function EqulityGrid() {
 
   return (
     <div className={styles.table}>
-      {header()}
-      {rows()}
+      <Header />
+      <Rows />
     </div>
   );
 }

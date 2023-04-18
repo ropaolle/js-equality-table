@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import styles from './EqulityTable.module.css';
 import { equality, values } from '../../lib/jsEqulity';
 
@@ -13,7 +13,7 @@ export default function EqulityTable() {
   const getStyle = ({ x, y }) => equality({ x, y }, [styles.strict, styles.loose, styles.notEqual]);
   const getTitle = ({ x, y }) => equality({ x, y }, ['Strict equality', 'Loose equality', 'Not equal']);
 
-  const header = () => (
+  const Header = () => (
     <tr>
       <th></th>
       {values.map(({ label }, index) => (
@@ -24,28 +24,35 @@ export default function EqulityTable() {
     </tr>
   );
 
-  const rows = () =>
+  const Row = ({ x, indexX }) =>
+    values.map(({ y }, indexY) => (
+      <td
+        key={indexY}
+        id={indexX + ':' + indexY}
+        onMouseEnter={(e) => onMouseEnter(e.currentTarget.id.split(':'))}
+        className={[styles.cell, getStyle({ x, y }), getHoverStyle({ y: indexX, x: indexY })].join(' ')}
+        title={getTitle({ x, y })}
+      >
+        {getSign({ x, y })}
+      </td>
+    ));
+
+  const Rows = () =>
     values.map(({ x, label }, indexX) => (
       <tr key={indexX}>
         <td className={[styles.labelRow, getHoverStyle({ y: indexX })].join(' ')}>{label}</td>
-        {values.map(({ y }, indexY) => (
-          <td
-            key={indexY}
-            id={indexX + ':' + indexY}
-            onMouseEnter={(e) => onMouseEnter(e.currentTarget.id.split(':'))}
-            className={[styles.cell, getStyle({ x, y }), getHoverStyle({ y: indexX, x:indexY })].join(' ')}
-            title={getTitle({ x, y })}
-          >
-            {getSign({ x, y })}
-          </td>
-        ))}
+        <Row x={x} indexX={indexX} />
       </tr>
     ));
 
   return (
     <table className={styles.table} onMouseLeave={onMouseLeave}>
-      <thead>{header()}</thead>
-      <tbody>{rows()}</tbody>
+      <thead>
+        <Header />
+      </thead>
+      <tbody>
+        <Rows />
+      </tbody>
     </table>
   );
 }

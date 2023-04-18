@@ -6,7 +6,7 @@ export default function EqulityTable() {
   const getStyle = ({ x, y }) => equality({ x, y }, [styles.strict, styles.loose, styles.notEqual]);
   const getTitle = ({ x, y }) => equality({ x, y }, ['Strict equality', 'Loose equality', 'Not equal']);
 
-  const header = () => (
+  const Header = () => (
     <tr>
       <th></th>
       {values.map(({ label }, index) => (
@@ -17,7 +17,7 @@ export default function EqulityTable() {
     </tr>
   );
 
-  const rows = () =>
+  const Rows = () =>
     values.map(({ x, label }, index) => (
       <tr key={index}>
         <td className={styles.labelRow}>{label}</td>
@@ -31,8 +31,12 @@ export default function EqulityTable() {
 
   return (
     <table className={styles.table}>
-      <thead>{header()}</thead>
-      <tbody>{rows()}</tbody>
+      <thead>
+        <Header />
+      </thead>
+      <tbody>
+        <Rows />
+      </tbody>
     </table>
   );
 }

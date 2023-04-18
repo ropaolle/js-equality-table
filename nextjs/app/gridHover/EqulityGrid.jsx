@@ -10,21 +10,21 @@ export default function EqulityGrid() {
     return `${values[xIndex].label} ${sign} ${values[yIndex].label} (${title})`;
   };
 
-  const header = () =>
+  const Header = () =>
     ['', ...values].map(({ label }, index) => (
       <div className={styles.headerLabel} key={index}>
         {label}
       </div>
     ));
 
-  const sidebar = () =>
+  const Sidebar = () =>
     values.map(({ label }, index) => (
       <div className={styles.sidebarLabel} key={index}>
         {label}
       </div>
     ));
 
-  const rows = () =>
+  const Rows = () =>
     values.map(({ x }, xIndex) =>
       values.map(({ y }, yIndex) => (
         <div key={yIndex} className={getStyle({ x, y })} title={getTitle(x, y, xIndex, yIndex)}>
@@ -35,10 +35,16 @@ export default function EqulityGrid() {
 
   return (
     <div className={styles.grid}>
-      <div className={styles.header}>{header()}</div>
-      <div className={styles.sidebar}>{sidebar()}</div>
+      <div className={styles.header}>
+        <Header />
+      </div>
+      <div className={styles.sidebar}>
+        <Sidebar />
+      </div>
       <div /* className={styles.content} */>
-        <div className={styles.table}>{rows()}</div>
+        <div className={styles.table}>
+          <Rows />
+        </div>
       </div>
     </div>
   );

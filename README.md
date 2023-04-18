@@ -8,8 +8,9 @@ Test of a couple of different JavaScript frameworks by building a simple equalit
 - [x] Gatsby
 - [x] Next.js
   - [App Router - Pages](https://beta.nextjs.org/docs/routing/fundamentals)
-- [ ] ReMix 
-- [ ] Astro
+- [ ] ReMix
+- [ ] Astro 2.0
+- [ ] Vite
 
 ## Not used
 
