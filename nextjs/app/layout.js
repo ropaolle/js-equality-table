@@ -23,6 +23,9 @@ export default function RootLayout({ children }) {
                 <Link href="/tableHover">CSS Table Hover</Link>
               </li>
               <li>
+                <Link href="/tableEmitter">CSS Table Event Emitter</Link>
+              </li>
+              <li>
                 <Link href="/grid">CSS Grid</Link>
               </li>
               <li>

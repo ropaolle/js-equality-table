@@ -25,3 +25,9 @@ header ul {
 /* tr:hover td {
   background-color: burlywood;
 } */
+
+
+table td.global-highlight-cell {
+  background-color: hsl(50, 65%, 85%) !important;
+  /* border: none; */
+}
