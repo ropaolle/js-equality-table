@@ -1,5 +1,3 @@
-'use client';
-import {} from 'react';
 import styles from './EqulityGrid.module.css';
 import { equality, values } from '../../lib/jsEqulity';
 

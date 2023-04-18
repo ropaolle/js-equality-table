@@ -1,7 +1,7 @@
 .table {
   margin-left: auto;
   margin-right: auto;
-  border-spacing: 4px;
+  border-spacing: 2px;
 }
 
 .labelCol {
@@ -16,14 +16,14 @@
 }
 
 .cell {
-  border-width: 1px;
+  /* border-width: 1px;
   border-style: solid;
-  border-radius: 2px;
+  border-radius: 2px; */
   text-align: center;
 }
 
 .notEqual {
-  border-style: dotted;
+  /* border-style: dotted; */
   color: hsl(0, 0%, 70%);
   background-color: hsl(0, 0%, 95%);
   border-color: hsl(0, 0%, 75%);
