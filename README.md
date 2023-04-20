@@ -12,12 +12,23 @@ Test of a couple of different JavaScript frameworks by building a simple equalit
 - [x] ReMix
 - [x] Astro 2.0
 
+## Deployment
+
+- [ ] [CloudFlare Pages](https://developers.cloudflare.com/pages/framework-guides/deploy-an-astro-site/)
+
 ## Not tested
 
+- Testa
+  - [Svelte](https://svelte.dev/)
+  - [Solid](https://www.solidjs.com/)
+  - [Vue](https://vuejs.org/)
+  - [Angular](https://angular.io/)
+  - []()
 - Static site generators
   - Hexo
   - Hugo
   - Eleventy
+  - Elder JS
   - Bridgetown
   - Jekyll
 - API
