@@ -8,11 +8,13 @@ Test of a couple of different JavaScript frameworks by building a simple equalit
 - [x] Gatsby
 - [x] Next.js
   - [App Router - Pages](https://beta.nextjs.org/docs/routing/fundamentals)
+  - [Deploy](https://vercel.com/ropaolle/js-equality-table/settings/general)
 - [x] Vite
+  - [Deploy](https://dash.cloudflare.com/6366c6999e5353a03edd4b5b87499b69/pages)
 - [x] ReMix
 - [x] Astro 2.0
 
-## Deployment
+## Links
 
 - [ ] [CloudFlare Pages](https://developers.cloudflare.com/pages/framework-guides/deploy-an-astro-site/)
 
