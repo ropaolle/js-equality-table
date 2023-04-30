@@ -34,7 +34,7 @@ table {
 .labelRow {
   text-align: right;
   padding-right: 8px;
-} 
+}
 
 td div {
   border-width: 1px;
@@ -42,6 +42,10 @@ td div {
   /* border-radius: 2px; */
   height: 22px;
   width: 22px;
+}
+
+.highlight-cell {
+  background-color: hsl(50, 65%, 85%);
 }
 
 .notEqual {
