@@ -68,7 +68,8 @@ const emitter = (() => {
 export default function App() {
   const getSign = ({ x, y }) => equality({ x, y }, ['=', '≅', '≠']);
   const getStyle = ({ x, y }) => equality({ x, y }, ['strict', 'loose', 'notEqual']);
-  const getTitle = ({ x, y }) => equality({ x, y }, ['Strict equality', 'Loose equality', 'Not equal']);
+  const getTitle = ({ x, y }) =>
+    equality({ x, y }, ['Strict equality', 'Loose equality', 'Not equal']);
 
   const ColumnHeader = () => (
     <tr>
@@ -110,7 +111,8 @@ export default function App() {
     );
   };
 
-  const Row = ({ x, row }) => values.map(({ y }, col) => <TableCell key={col} row={row} col={col} x={x} y={y} />);
+  const Row = ({ x, row }) =>
+    values.map(({ y }, col) => <TableCell key={col} row={row} col={col} x={x} y={y} />);
 
   const Rows = () =>
     values.map(({ x, label }, row) => (
