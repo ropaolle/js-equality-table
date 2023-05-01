@@ -6,9 +6,9 @@
   - [ ] Netlify CLI
   - [ ] Netlify Git
   - [ ] Vercel CLI
-  - [ ] Vercel Git
+  - [ ] [Vercel Git](https://vercel.com/ropaolle)
   - [ ] Cloudflare Pages with Wrangler
   - [ ] Cloudflare Pages with Git
   - [ ] Google Firebase
-  - [ ] Surge
+  - [ ] [Surge](https://surge.sh/)
   - [ ] [Render](https://dashboard.render.com/)
