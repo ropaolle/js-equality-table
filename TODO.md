@@ -1,7 +1,7 @@
 # TODO
 
 - [Deploy](https://vitejs.dev/guide/static-deploy.html)
-  - [ ] GitHub Pages
+  - [ ] [GitHub Pages]()
   - [ ] GitLab Pages
   - [ ] Netlify CLI
   - [ ] Netlify Git
