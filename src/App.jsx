@@ -32,28 +32,26 @@ const values = [
 ];
 
 const emitter = (() => {
-  let currentRow = -1;
-  let currentCol = -1;
-  const subs = [];
+  let currentRow;
+  let currentCol;
+  const subscriptions = [];
 
   return {
-    subscribe(r, c, cb) {
-      subs[r] = subs[r] ?? [];
-      subs[r][c] = cb;
-      return () => delete subs[r][c];
+    subscribe(row, col, callback) {
+      subscriptions[row] = subscriptions[row] ?? [];
+      subscriptions[row][col] = callback;
+      return () => delete subscriptions[row][col];
     },
 
     highlight(newRow, newCol) {
-      subs.forEach((row, r) => {
-        row.forEach((cb, c) => {
-          const wasHighlighted = r === currentRow || c === currentCol;
-          const isHighlighted = r === newRow || c === newCol;
-          // Only notify if the highlighting for this row
-          // has changed. We could optimize this loop to
-          // only run for the changed rows, but you're
-          // unlikely to see noticable gains.
+      subscriptions.forEach((row, rowIndex) => {
+        row.forEach((callback, colIndex) => {
+          const wasHighlighted = rowIndex === currentRow || colIndex === currentCol;
+          const isHighlighted = rowIndex === newRow || colIndex === newCol;
+          // Only notify if the highlighting for this row has changed. We could optimize this loop to
+          // only run for the changed rows, but you're unlikely to see noticable gains.
           if (wasHighlighted !== isHighlighted) {
-            cb(isHighlighted);
+            callback(isHighlighted);
           }
         });
       });
@@ -125,7 +123,7 @@ export default function App() {
   return (
     <div className="App">
       <h1>Equality in JavaScript</h1>
-      <table onMouseLeave={() => emitter.highlight(-1, -1)}>
+      <table onMouseLeave={() => emitter.highlight()}>
         <thead>
           <ColumnHeader />
         </thead>
