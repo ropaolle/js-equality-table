@@ -3,10 +3,10 @@
 - [Deploy](https://vitejs.dev/guide/static-deploy.html)
   - [x] [GitHub Pages](https://ropaolle.github.io/js-equality-table/)
   - [ ] GitLab Pages
-  - [ ] Netlify CLI
-  - [ ] Netlify Git
-  - [ ] Vercel CLI
-  - [ ] [Vercel Git](https://vercel.com/ropaolle)
+  - [x] [Netlify CLI](https://js-equality-table.netlify.app/)
+  - [x] [Netlify Git](https://courageous-kitten-652dfd.netlify.app/)
+  - [x] [Vercel CLI](https://js-equality-table.vercel.app/)
+  - [x] [Vercel Git](https://vercel.com/ropaolle)
   - [ ] Cloudflare Pages with Wrangler
   - [ ] Cloudflare Pages with Git
   - [ ] Google Firebase
