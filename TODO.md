@@ -1,7 +1,7 @@
 # TODO
 
 - [Deploy](https://vitejs.dev/guide/static-deploy.html)
-  - [x] [GitHub Pages](https://ropaolle.github.io/js-equality-table/)
+  - [x] [GitHub Pages](https://ropaolle.github.io/js-equality-table)
   - [ ] GitLab Pages
   - [ ] Netlify CLI
   - [ ] Netlify Git
