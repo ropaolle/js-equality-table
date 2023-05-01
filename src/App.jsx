@@ -95,12 +95,11 @@ export default function App() {
     }, [col, row]);
 
     return (
-      <td>
+      <td onMouseEnter={() => emitter.highlight(row, col)}>
         <div
           key={col}
           className={getStyle({ x, y })}
           title={getTitle({ x, y })}
-          onMouseEnter={() => emitter.highlight(row, col)}
           ref={ref}
         >
           {getSign({ x, y })}
