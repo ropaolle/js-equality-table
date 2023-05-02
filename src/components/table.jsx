@@ -1,5 +1,4 @@
 import { useRef, useEffect } from 'react';
-import './App.css';
 
 const emitter = (() => {
   let currentRow;
@@ -14,6 +13,7 @@ const emitter = (() => {
     },
 
     highlight(newRow, newCol) {
+      // console.log('DUDE', newRow)
       subscriptions.forEach((row, rowIndex) => {
         row.forEach((callback, colIndex) => {
           const wasHighlighted = rowIndex === currentRow || colIndex === currentCol;
@@ -33,23 +33,17 @@ const emitter = (() => {
   };
 })();
 
-export default function Table() {
-
-
-  const ColumnHeader = () => (
+export default function Table({ columnHeaders, rowHeaders, rows, caption }) {
+  const Header = () => (
     <tr>
-      <th></th>
-      {values.map(({ label }, index) => (
-        <th className="labelCol" key={index}>
-          {label}
-        </th>
+      {rowHeaders && <th />}
+      {columnHeaders.map((label, index) => (
+        <th key={index}>{label}</th>
       ))}
     </tr>
   );
 
-  const RowHeader = ({ label }) => <td className="labelRow">{label}</td>;
-
-  const TableCell = ({ row, col, x, y }) => {
+  const Cell = ({ content, row, col }) => {
     const ref = useRef();
 
     useEffect(() => {
@@ -62,35 +56,32 @@ export default function Table() {
     }, [col, row]);
 
     return (
-      <td onMouseEnter={() => emitter.highlight(row, col)}>
-        <div key={col} className={getStyle({ x, y })} title={getTitle({ x, y })} ref={ref}>
-          {getSign({ x, y })}
-        </div>
+      <td key={col} onMouseEnter={() => emitter.highlight(row, col)} ref={ref}>
+        {content}
       </td>
     );
   };
 
-  const Row = ({ x, row }) =>
-    values.map(({ y }, col) => <TableCell key={col} row={row} col={col} x={x} y={y} />);
+  const Row = ({ row, rowIndex }) =>
+    row.map((content, colIndex) => <Cell content={content} row={rowIndex} col={colIndex} />);
 
   const Rows = () =>
-    values.map(({ x, label }, row) => (
-      <tr key={row}>
-        <RowHeader label={label} />
-        <Row x={x} row={row} />
+    rows.map((row, rowIndex) => (
+      <tr key={rowIndex}>
+        {rowHeaders && <th>{rowHeaders[rowIndex]}</th>}
+        <Row row={row} rowIndex={rowIndex} />
       </tr>
     ));
 
   return (
-       <table onMouseLeave={() => emitter.highlight()}>
-        <caption>Caption</caption>
-        <thead>
-          <ColumnHeader />
-        </thead>
-        <tbody>
-          <Rows />
-        </tbody>
-      </table>
-
+    <table onMouseLeave={() => emitter.highlight()}>
+      <caption>{caption}</caption>
+      <thead>
+        <Header />
+      </thead>
+      <tbody>
+        <Rows />
+      </tbody>
+    </table>
   );
 }
