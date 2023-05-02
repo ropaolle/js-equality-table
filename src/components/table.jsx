@@ -13,7 +13,6 @@ const emitter = (() => {
     },
 
     highlight(newRow, newCol) {
-      // console.log('DUDE', newRow)
       subscriptions.forEach((row, rowIndex) => {
         row.forEach((callback, colIndex) => {
           const wasHighlighted = rowIndex === currentRow || colIndex === currentCol;
@@ -43,7 +42,7 @@ export default function Table({ columnHeaders, rowHeaders, rows, caption }) {
     </tr>
   );
 
-  const Cell = ({ content, row, col }) => {
+  const Cell = ({ children, row, col }) => {
     const ref = useRef();
 
     useEffect(() => {
@@ -56,14 +55,18 @@ export default function Table({ columnHeaders, rowHeaders, rows, caption }) {
     }, [col, row]);
 
     return (
-      <td key={col} onMouseEnter={() => emitter.highlight(row, col)} ref={ref}>
-        {content}
+      <td onMouseEnter={() => emitter.highlight(row, col)} ref={ref}>
+        {children}
       </td>
     );
   };
 
   const Row = ({ row, rowIndex }) =>
-    row.map((content, colIndex) => <Cell content={content} row={rowIndex} col={colIndex} />);
+    row.map((content, colIndex) => (
+      <Cell row={rowIndex} col={colIndex} key={colIndex}>
+        {content}
+      </Cell>
+    ));
 
   const Rows = () =>
     rows.map((row, rowIndex) => (

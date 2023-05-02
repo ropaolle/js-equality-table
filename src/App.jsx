@@ -39,13 +39,13 @@ export default function App() {
   const getTitle = ({ x, y }) =>
     equality({ x, y }, ['Strict equality', 'Loose equality', 'Not equal']);
 
-  const Cell = ({ key, x, y }) => (
-    <div key={key} className={getStyle({ x, y })} title={getTitle({ x, y })}>
+  const Cell = ({ index, x, y }) => (
+    <div key={index} className={getStyle({ x, y })} title={getTitle({ x, y })}>
       {getSign({ x, y })}
     </div>
   );
 
-  const row = (x) => values.map(({ y }, key) => <Cell key={key} x={x} y={y} />);
+  const row = (x) => values.map(({ y }, index) => <Cell index={index} x={x} y={y} />);
   const rows = values.map(({ x }) => row(x));
 
   return (
@@ -55,7 +55,7 @@ export default function App() {
         columnHeaders={headers}
         rowHeaders={headers}
         rows={rows}
-        caption="RopaOlle@gmail.com, 2023."
+        // caption="https://github.com/ropaolle/js-equality-table, 2023."
       />
     </div>
   );
