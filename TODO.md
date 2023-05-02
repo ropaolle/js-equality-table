@@ -1,8 +1,7 @@
 # TODO
 
-- [ESlint](https://www.robinwieruch.de/vite-eslint/)
-
-- [Deploy](https://vitejs.dev/guide/static-deploy.html)
+- [ ] [ESlint](https://www.robinwieruch.de/vite-eslint/)
+- [ ] [Deploy](https://vitejs.dev/guide/static-deploy.html)
   - [x] [GitHub Pages](https://ropaolle.github.io/js-equality-table/)
   - [x] [Netlify CLI](https://js-equality-table.netlify.app/)
   - [x] [Netlify Git](https://courageous-kitten-652dfd.netlify.app/)

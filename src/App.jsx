@@ -51,12 +51,7 @@ export default function App() {
   return (
     <div className="App">
       <h1>Equality in JavaScript</h1>
-      <Table
-        columnHeaders={headers}
-        rowHeaders={headers}
-        rows={rows}
-        // caption="https://github.com/ropaolle/js-equality-table, 2023."
-      />
+      <Table columnHeaders={headers} rowHeaders={headers} rows={rows} caption="RopaOlle, 2023." />
     </div>
   );
 }
