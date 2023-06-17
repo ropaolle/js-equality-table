@@ -1,0 +1,92 @@
+.grid {
+  display: grid;
+  grid-template-columns: auto;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: fit-content;
+  cursor: pointer;
+}
+
+.header {
+  grid-column: 1 / span 2;
+  grid-row: 1;
+  display: grid;
+  grid-template-columns: 100px repeat(21, 1fr);
+}
+
+.sidebar {
+  display: grid;
+  grid-template-rows: repeat(21, 1fr);
+}
+
+/* .content {
+} */
+
+.table {
+  display: grid;
+  grid-template-columns: repeat(21, 1fr);
+  margin: 4px;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.label {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.headerLabel {
+  composes: label;
+  writing-mode: vertical-rl;
+}
+
+.sidebarLabel {
+  composes: label;
+  align-items: center;
+}
+
+.cell {
+  overflow: visible;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 2px;
+  width: 22px;
+  height: 22px;
+}
+
+.cell:hover {
+  /* background-size: 100% 100%; */
+  transform: scale(1.2, 1.2);
+  transform-origin: center;
+}
+
+.notEqual {
+  composes: cell;
+  border-style: dotted;
+  color: hsl(0, 0%, 70%);
+  background-color: hsl(0, 0%, 95%);
+  border-color: hsl(0, 0%, 75%);
+}
+
+.strict {
+  composes: cell;
+  color: hsl(0, 0%, 35%);
+  background-color: hsl(0, 0%, 65%);
+  border-color: hsl(0, 0%, 30%);
+  font-weight: bold;
+}
+
+.loose {
+  composes: cell;
+  color: hsl(0, 0%, 50%);
+  background-color: hsl(0, 0%, 85%);
+  border-color: hsl(0, 0%, 55%);
+}
+
+@media (max-width: 640px) {
+  .grid {
+    overflow-y: auto;
+    margin: 0 1rem;
+  }
+}
